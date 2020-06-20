@@ -15,7 +15,7 @@ chardet==3.0.4
 cmake==3.14.4
 cryptography==2.6.1
 decorator==4.4.0
-Django==2.1.8
+Django==2.2.13
 django-celery==3.2.2
 django-cors-headers==2.4.0
 django-extensions==2.1.7
