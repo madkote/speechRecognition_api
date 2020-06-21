@@ -1,0 +1,25 @@
+2020-06-15 06:48:52 AliSpeech_C++SDK(INFO)[140308283782912]: getStartCommand:233 StartCommand: {"context":{"sdk":{"language":"C++","name":"nls-sdk-linux","version":"2.3.15"}},"header":{"appkey":"FmZdwtb0NStvganc","message_id":"33156cc695274df58c0eda42357b8454","name":"StartTranscription","namespace":"SpeechTranscriber","task_id":"a2a032d3d5b44c21827e3e21b0d1c8c8"},"payload":{"enable_intermediate_result":false,"enable_inverse_text_normalization":false,"enable_punctuation_prediction":false,"enable_semantic_sentence_detection":false,"format":"pcm","max_sentence_silence":250,"sample_rate":16000}}
+
+2020-06-15 06:48:52 AliSpeech_C++SDK(INFO)[140308283782912]: start:152 StartCommand sent to server.
+2020-06-15 06:48:52 AliSpeech_C++SDK(INFO)[140308271126272]: handlerFrame:379 Begin HandlerFrame.
+2020-06-15 06:48:52 AliSpeech_C++SDK(INFO)[140308271126272]: convertResult:51 Response: {"header":{"namespace":"Default","name":"TaskFailed","status":40000005,"message_id":"9238cad8f7ac4979bf1ae664f4948572","task_id":"a2a032d3d5b44c21827e3e21b0d1c8c8","status_text":"Gateway:TOO_MANY_REQUESTS:Too many requests!"}}
+2020-06-15 06:48:52 AliSpeech_C++SDK(INFO)[140308271126272]: handlerFrame:469 End HandlerFrame.
+2020-06-15 06:48:52 AliSpeech_C++SDK(ERROR)[140308283782912]: start:182 Start failed.
+2020-06-15 06:48:52 AliSpeech_C++SDK(ERROR)[140308283782912]: start:82 delete _session.
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308283782912]: getStartCommand:233 StartCommand: {"context":{"sdk":{"language":"C++","name":"nls-sdk-linux","version":"2.3.15"}},"header":{"appkey":"FmZdwtb0NStvganc","message_id":"af5914b71c664a218b80610ef3457398","name":"StartTranscription","namespace":"SpeechTranscriber","task_id":"a2a032d3d5b44c21827e3e21b0d1c8c8"},"payload":{"enable_intermediate_result":false,"enable_inverse_text_normalization":false,"enable_punctuation_prediction":false,"enable_semantic_sentence_detection":false,"format":"pcm","max_sentence_silence":250,"sample_rate":16000}}
+
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308283782912]: start:152 StartCommand sent to server.
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308271126272]: handlerFrame:379 Begin HandlerFrame.
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308271126272]: convertResult:51 Response: {"header":{"namespace":"Default","name":"TaskFailed","status":40000005,"message_id":"8359596802a94149b41f3df7a18715d9","task_id":"a2a032d3d5b44c21827e3e21b0d1c8c8","status_text":"Gateway:TOO_MANY_REQUESTS:Too many requests!"}}
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308271126272]: handlerFrame:469 End HandlerFrame.
+2020-06-15 06:48:53 AliSpeech_C++SDK(ERROR)[140308283782912]: start:182 Start failed.
+2020-06-15 06:48:53 AliSpeech_C++SDK(ERROR)[140308283782912]: start:82 delete _session.
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308283782912]: getStartCommand:233 StartCommand: {"context":{"sdk":{"language":"C++","name":"nls-sdk-linux","version":"2.3.15"}},"header":{"appkey":"FmZdwtb0NStvganc","message_id":"fc705dd59f7942f990ad132d1a4c615a","name":"StartTranscription","namespace":"SpeechTranscriber","task_id":"a2a032d3d5b44c21827e3e21b0d1c8c8"},"payload":{"enable_intermediate_result":false,"enable_inverse_text_normalization":false,"enable_punctuation_prediction":false,"enable_semantic_sentence_detection":false,"format":"pcm","max_sentence_silence":250,"sample_rate":16000}}
+
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308283782912]: start:152 StartCommand sent to server.
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308271126272]: handlerFrame:379 Begin HandlerFrame.
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308271126272]: convertResult:51 Response: {"header":{"namespace":"Default","name":"TaskFailed","status":40000005,"message_id":"76e64344ab2d45838447439452509551","task_id":"a2a032d3d5b44c21827e3e21b0d1c8c8","status_text":"Gateway:TOO_MANY_REQUESTS:Too many requests!"}}
+2020-06-15 06:48:53 AliSpeech_C++SDK(INFO)[140308271126272]: handlerFrame:469 End HandlerFrame.
+2020-06-15 06:48:53 AliSpeech_C++SDK(ERROR)[140308283782912]: start:182 Start failed.
+2020-06-15 06:48:53 AliSpeech_C++SDK(ERROR)[140308283782912]: start:82 delete _session.
+2020-06-15 06:48:53 AliSpeech_C++SDK(ERROR)[140308283782912]: handlerFrame:44 , start finised.
