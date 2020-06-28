@@ -136,6 +136,7 @@ def zhRecognition(audio_file):
     status = "error"
     message = "right"
     result = ""
+    dev_pid_name=1537
     format = False
     filename = audio_file
     path_file_number = glob.glob(pathname='*.wav')
@@ -152,10 +153,13 @@ def zhRecognition(audio_file):
             file_content = f.read()
         aip = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
         data = aip.asr(file_content, 'wav', 16000, {
-            'dev_pid': 1536,
+            'dev_pid': dev_pid_name, # was 1536 1537
         })
         end = datetime.now()
-        print(data)
+        print("error_resulut:",data)
+        print("error_resulut_1:",data['err_msg'])
+        if data['err_msg']=='request pv too much':
+                dev_pid_name+=1
         print('used time is : ', end - start)
         if "err_no" in data:
             if data['err_no'] == 0:
@@ -192,32 +196,36 @@ def enRecognition(audio_file):
         command = 'ffmpeg -y -i %s %s' % (audio_file, filename)
         subprocess.call(command, shell=True)
         format = True
-    with open(filename, 'rb') as f:
-        file_content = f.read()
-    if format:
-        os.remove(filename)
-    data = aip.asr(file_content, 'wav', 16000, {
-        'dev_pid': 1737,
-    })
-    #os.remove(audio_file)
-    end = datetime.now()
-    print(data)
-    print('used time is : ', end - start)
-    if "err_no" in data:
-        if data['err_no'] == 0:
-            result = data['result'][0]
-            status = "ok"
-        elif data["err_no"] == 3301:
-            message = "audio quality poor"
+    try:    
+        with open(filename, 'rb') as f:
+            file_content = f.read()
+        if format:
+            os.remove(filename)
+        data = aip.asr(file_content, 'wav', 16000, {
+            'dev_pid': 1737,
+        })
+        #os.remove(audio_file)
+        end = datetime.now()
+        print(data)
+        print('used time is : ', end - start)
+        if "err_no" in data:
+            if data['err_no'] == 0:
+                result = data['result'][0]
+                status = "ok"
+            elif data["err_no"] == 3301:
+                message = "audio quality poor"
+            else:
+                message = "other"
         else:
-            message = "other"
-    else:
-        message = "time out"
-    response_data = json.dumps({"status": status, "message": message, "result": result})
-    return response_data
+            message = "time out"
+        response_data = json.dumps({"status": status, "message": message, "result": result})
+        return response_data
+    except :
+        response_data = json.dumps({"status": "error", "message": "Please check the file naming format", "result": ""})
+        return response_data
 
-class DemoError(Exception):
-    pass
+# class DemoError(Exception):
+#     pass
 def fetch_token():
     num = random.randint(1, 5)
     APP_ID, API_KEY, SECRET_KEY = num_aip(num)

@@ -19,6 +19,16 @@ from django.test import TestCase
 
 # from hashlib import md5
 
-test = "'周杰伦 - Mojito的副本.26998.wav'"
-print(eval(test))
+# test = "'周杰伦 - Mojito的副本.26998.wav'"
+# print(eval(test))
 # audio_file type: <class 'django.core.files.uploadedfile.TemporaryUploadedFile'>
+data={'err_msg': 'request pv too much', 'err_no': 3305, 'sn': '258141401141593329826'}
+print(data['err_msg'])
+dev_pid_name=1536
+if data['err_msg']=='request pv too much':
+    dev_pid_name+=1
+
+print(dev_pid_name)
+
+
+
