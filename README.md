@@ -31,3 +31,5 @@ ps -ef | grep 27705 | grep -v root | awk '{print $2}' | xargs kill -9
 conda activate speechrecognition
 
 ：151,173>
+
+nohup python manage.py runserver 0.0.0.0:27705 & 
