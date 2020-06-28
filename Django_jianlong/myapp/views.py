@@ -37,16 +37,44 @@ class SpeechRecognitionView(View):
 class zhRecognitionView(View):
     # 中文识别
     def post(self, request):
-        audio_file = request.FILES.get('audio', None) #音频文件
+        audio_file = request.FILES.get('audio', None)#音频文件
+        # audio_file = eval(str(audio_file))
+        # filecontent = audio_file.read()
+        # audio_file = audio_file.name
+        # print("audio_file.name:",audio_file.name)
+        # print("audio_file.name type:",type(audio_file.name))
+        # audio_file = str(audio_file)
+        # if (audio_file.startswith('"') or audio_file.startswith("'") or audio_file.endswith('"') or audio_file.endswith("'")):
+        #     audio_file = audio_file.replace('"','')
+        #     audio_file = audio_file.replace("'",'')
+        #     print(audio_file)
+        #     print(type(audio_file))
+
         if not audio_file:
             return HttpResponse({"upload audio error！"})
+
         filecontent = audio_file.read()
+
         temp_time = str(time.time())
-        filename = ''.join(audio_file.name)
+        audio_file_name = audio_file.name
+        # filename = ''.join(audio_file.name)
+        if (audio_file_name.startswith('"') or audio_file_name.startswith("'") or audio_file_name.endswith('"') or audio_file_name.endswith("'")):
+            audio_file_name = audio_file_name.replace('"','')
+            audio_file_name = audio_file_name.replace("'",'')
+            # print(audio_file_name)
+            # print(type(audio_file_name))
+        filename = ''.join(audio_file_name)
+        # filename = audio_file_name
+        # print("filename:",filename)
+        # print("filename type:",type(filename))
         filename = filename[:-4] + temp_time[-6:] + filename[-4:]
+        # print("filename:",filename)
+        # print("filename type:",type(filename))
+
         with open(filename, 'wb') as f:
             f.write(filecontent)
-        response_data = kuaizhRecognition(filename) #语音识别
+        # response_data = kuaizhRecognition(filename) #语音识别 加上性别年龄等
+        response_data = zhRecognition(filename) #语音识别 普通版本的 
         os.remove(filename)
         return HttpResponse(response_data) # 返回json格式
 class enRecognitionView(View):

@@ -16,3 +16,18 @@ fg [10]+
 
 python manage.py runserver 0.0.0.0:27705
 ps -ef | grep node | awk '{print $2}' | xargs kill -9
+
+git rm --cached "文件路径"
+
+
+# my
++ [tensorflow 对应 的keras 版本， 版本不匹配会出现很多问题](https://blog.csdn.net/yeyang911/article/details/84968473)
+
+ps -ef | grep 27705 | grep -v root | awk '{print $2}' | xargs kill -9
+
+中文本地接口：http://0.0.0.0:27705/zhRecognition/
+现在 /Users/ccs/Desktop/speech_recognition_api
+
+conda activate speechrecognition
+
+：151,173>

@@ -1,4 +1,3 @@
-
 import numpy as np
 from keras.models import model_from_json
 from sklearn.externals import joblib

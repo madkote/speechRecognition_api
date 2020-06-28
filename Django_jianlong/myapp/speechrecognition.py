@@ -147,29 +147,34 @@ def zhRecognition(audio_file):
         command = 'ffmpeg -y -i %s %s' % (audio_file, filename)
         subprocess.call(command, shell=True)
         format = True
-    with open(filename, 'rb') as f:
-        file_content = f.read()
-    aip = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
-    data = aip.asr(file_content, 'wav', 16000, {
-        'dev_pid': 1536,
-    })
-    end = datetime.now()
-    print(data)
-    print('used time is : ', end - start)
-    if "err_no" in data:
-        if data['err_no'] == 0:
-            result = data['result'][0]
-            status = "ok"
-        elif data["err_no"] == 3301:
-            message = "audio quality poor"
+    try:
+        with open(filename, 'rb') as f:
+            file_content = f.read()
+        aip = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
+        data = aip.asr(file_content, 'wav', 16000, {
+            'dev_pid': 1536,
+        })
+        end = datetime.now()
+        print(data)
+        print('used time is : ', end - start)
+        if "err_no" in data:
+            if data['err_no'] == 0:
+                result = data['result'][0]
+                status = "ok"
+            elif data["err_no"] == 3301:
+                message = "audio quality poor"
+            else:
+                message = "other"
         else:
-            message = "other"
-    else:
-        message = "time out"
-    response_data = json.dumps({"status": status, "message": message, "result": result})
-    if format:
-        os.remove(filename)
-    return response_data
+            message = "time out"
+        response_data = json.dumps({"status": status, "message": message, "result": result})
+        if format:
+            os.remove(filename)
+        return response_data
+    except :
+        response_data = json.dumps({"status": "error", "message": "Please check the file naming format", "result": ""})
+        return response_data
+
 
 def enRecognition(audio_file):
     start = datetime.now()
