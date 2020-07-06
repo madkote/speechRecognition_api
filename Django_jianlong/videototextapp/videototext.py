@@ -4,6 +4,8 @@ import sys
 import os
 import subprocess
 import json
+AccessKeyId ="LTAI4GKzbkmirmELi7jg96Pj"
+AccessKeySecret="820EleAa2rir61ctw70iXhozE6fGTP"
 
 def writeLmk(fileName, landmarks):
     fp = open(fileName, 'w+', encoding='utf-8')
@@ -71,8 +73,10 @@ def video_to_text(language, filename):
         # 音频语音识别（阿里）
         # command = '/home/barfoo/web/speech_recognition_api/install/NlsSdkCpp2.0/demo/stDemo_txt_250 %s %s' \
         #           % (language, path_wav)
+        # command = '/home/barfoo/web/speech_recognition_api/install/NlsSdkCpp3.X/demo/stDemo %s %s' \
+        #           % (language, path_wav)
         command = '/home/barfoo/web/speech_recognition_api/install/NlsSdkCpp3.X/demo/stDemo %s %s' \
-                  % (language, path_wav)
+                  % (AccessKeyId,AccessKeySecret)
         # command = '/home/jianlong/home/ali_c++/NlsSdkCpp2.0/demo/stDemo_txt %s %s' \
         #           % (language, path_wav)
         subprocess.call(command, shell=True)
