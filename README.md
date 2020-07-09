@@ -30,3 +30,23 @@ source ./run.sh
 ```
 tmux a -t 162
 ```
+
+# 视频到音频（降噪处理）接口
++ 运行后台
+```
+cd ./fastApi/
+uvicorn main:app --port 7000 --reload
+```
++ 接口
+```
+http://127.0.0.1:7000/video2audio/
+方法：post
+字段：video_path 类型：文件
+``` 
+![Umj8eS.png](https://s1.ax1x.com/2020/07/09/Umj8eS.png)
+
+# 会有帮助的文档
++ [Python Web 框架之FastAPI](https://www.jianshu.com/p/d01d3f25a2af)
++ [使用FastAPI框架快速构建高性能的api服务](https://blog.csdn.net/u013421629/article/details/104500192)
++ [fastapi(十二)-表单数据和文件上传](https://blog.csdn.net/vanexph/article/details/104983660)
++ ![UVyfpV.png](https://s1.ax1x.com/2020/07/08/UVyfpV.png)
