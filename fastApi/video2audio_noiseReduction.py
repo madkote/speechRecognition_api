@@ -5,6 +5,8 @@ import argparse
 import time
 import re
 
+from spleeter.audio.adapter import get_default_audio_adapter
+
 class video2audioProcessing(object):
     # def __init__(self,video_input,wav_out):
     def __init__(self,video_input):
@@ -65,6 +67,16 @@ class video2audioProcessing(object):
         处理文本，文本正则化和汉字转拼音
         """
         pass
+    def Remove_background_music(self,inpath):
+        # Use audio loader explicitly for loading audio waveform :
+        # from spleeter.audio.adapter import get_default_audio_adapter      ​
+        audio_loader = get_default_audio_adapter()
+        sample_rate = 44100
+        # waveform, _ = audio_loader.load('/path/to/audio/file', sample_rate=sample_rate)
+        waveform, _ = audio_loader.load(inpath, sample_rate=sample_rate)
+        # Perform the separation :
+        prediction = separator.separate(waveform)
+        print("Remove background music done!")
 
 def video2audio_removeNoise(video_path):
     '''
@@ -86,10 +98,13 @@ if __name__=="__main__":
     # print("path_wav:",path_wav)
     # outpath=processing.signalProcessing(path_wav)
     # print("outpath:",outpath)
-
-    video_path="./bali_1.mp4"
-    # wav_path="./bali_1_1.wav"
-    res = video2audio_removeNoise(video_path)
-    print(res)
+    # path = "/Users/ccs/Desktop/myRepo/speechRecognition_api/fastApi/音视频资料/mp4/61f11e6f677e205e80b918f3e4c33db4.mp4"
+    # video_path=".//音视频资料/mp4/61f11e6f677e205e80b918f3e4c33db4.mp4"
+    # # wav_path="./bali_1_1.wav"
+    # res = video2audio_removeNoise(video_path)
+    # print(res)
+    inpath ="/Users/ccs/Desktop/myRepo/speechRecognition_api/fastApi/音视频资料/wav/61f11e6f677e205e80b918f3e4c33db4.wav"
+    a= video2audioProcessing(inpath)
+    a.Remove_background_music(inpath)
 
 
