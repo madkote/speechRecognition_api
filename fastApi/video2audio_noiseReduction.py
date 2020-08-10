@@ -4,8 +4,10 @@ import os
 import argparse
 import time
 import re
-
 from spleeter.audio.adapter import get_default_audio_adapter
+from spleeter import separator
+# sys.path.append("/Users/ccs/Desktop/myRepo/speechRecognition_api/fastApi/spleeter/")
+# from spleeter.audio.adapter import get_default_audio_adapter
 
 class video2audioProcessing(object):
     # def __init__(self,video_input,wav_out):
@@ -69,6 +71,7 @@ class video2audioProcessing(object):
         pass
     def Remove_background_music(self,inpath):
         # Use audio loader explicitly for loading audio waveform :
+
         # from spleeter.audio.adapter import get_default_audio_adapter      ​
         audio_loader = get_default_audio_adapter()
         sample_rate = 44100
@@ -103,7 +106,7 @@ if __name__=="__main__":
     # # wav_path="./bali_1_1.wav"
     # res = video2audio_removeNoise(video_path)
     # print(res)
-    inpath ="/Users/ccs/Desktop/myRepo/speechRecognition_api/fastApi/音视频资料/wav/61f11e6f677e205e80b918f3e4c33db4.wav"
+    inpath ="/Users/ccs/Desktop/myRepo/speechRecognition_api/fastApi/音视频资料/wav/1.wav"
     a= video2audioProcessing(inpath)
     a.Remove_background_music(inpath)
 
